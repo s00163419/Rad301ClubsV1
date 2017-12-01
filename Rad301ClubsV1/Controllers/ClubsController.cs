@@ -17,8 +17,6 @@ namespace Rad301ClubsV1.Controllers
     {
         private ClubContext db = new ClubContext();
 
-
-
         // GET: Clubs=============================================================================================================================
         public async Task<ActionResult> Index(string ClubName = null )
         {
@@ -47,7 +45,6 @@ namespace Rad301ClubsV1.Controllers
                    select user;
         }
 
-
         // GET: Clubs/Details/5
         public async Task<ActionResult> Details(int? id)
         {
@@ -62,9 +59,6 @@ namespace Rad301ClubsV1.Controllers
             }
             return View(club);
         }
-
-
-
 
         // GET: Clubs/Create
         [Authorize(Roles = "Admin")]
@@ -105,12 +99,14 @@ namespace Rad301ClubsV1.Controllers
             }
             return View(club);
         }
-
+        //===========================================================================================================
         // POST: Clubs/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+
+        //===========================================================================================================
         public async Task<ActionResult> Edit([Bind(Include = "ClubId,ClubName,CreationDate")] Club club)
         {
             if (ModelState.IsValid)
@@ -122,7 +118,7 @@ namespace Rad301ClubsV1.Controllers
             return View(club);
         }
 
-        // GET: Clubs/Delete/5
+        // GET: Clubs/Delete/5=====================================================================================
         [Authorize(Roles = "Admin")]
         public async Task<ActionResult> Delete(int? id)
         {
@@ -138,7 +134,7 @@ namespace Rad301ClubsV1.Controllers
             return View(club);
         }
 
-        // POST: Clubs/Delete/5
+        // POST: Clubs/Delete=====================================================================================
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
@@ -149,6 +145,7 @@ namespace Rad301ClubsV1.Controllers
             return RedirectToAction("Index");
         }
 
+        //========================================================================================================
         protected override void Dispose(bool disposing)
         {
             if (disposing)
