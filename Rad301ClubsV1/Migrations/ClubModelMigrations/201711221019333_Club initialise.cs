@@ -3,7 +3,7 @@ namespace Rad301ClubsV1.Migrations.ClubModelMigrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Initial_Migration : DbMigration
+    public partial class Clubinitialise : DbMigration
     {
         public override void Up()
         {

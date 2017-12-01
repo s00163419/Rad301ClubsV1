@@ -15,6 +15,7 @@ namespace Rad301ClubsV1.Controllers
     {
         private ClubContext db = new ClubContext();
 
+        //=======================================================================================================================================
         // GET: ClubEvents
         public async Task<ActionResult> Index()
         {
@@ -22,6 +23,7 @@ namespace Rad301ClubsV1.Controllers
             return View(await clubEvents.ToListAsync());
         }
 
+        //=======================================================================================================================================
         // GET: ClubEvents/Details/5
         public async Task<ActionResult> Details(int? id)
         {
@@ -36,7 +38,7 @@ namespace Rad301ClubsV1.Controllers
             }
             return View(clubEvent);
         }
-
+        //=======================================================================================================================================
         // GET: ClubEvents/Create
         public ActionResult Create()
         {
@@ -47,6 +49,7 @@ namespace Rad301ClubsV1.Controllers
         // POST: ClubEvents/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        //=======================================================================================================================================
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "EventID,Venue,Location,ClubId,StartDateTime,EndDateTime")] ClubEvent clubEvent)
@@ -61,7 +64,7 @@ namespace Rad301ClubsV1.Controllers
             ViewBag.ClubId = new SelectList(db.Clubs, "ClubId", "ClubName", clubEvent.ClubId);
             return View(clubEvent);
         }
-
+        //=======================================================================================================================================
         // GET: ClubEvents/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
@@ -77,7 +80,7 @@ namespace Rad301ClubsV1.Controllers
             ViewBag.ClubId = new SelectList(db.Clubs, "ClubId", "ClubName", clubEvent.ClubId);
             return View(clubEvent);
         }
-
+        //=======================================================================================================================================
         // POST: ClubEvents/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -94,7 +97,7 @@ namespace Rad301ClubsV1.Controllers
             ViewBag.ClubId = new SelectList(db.Clubs, "ClubId", "ClubName", clubEvent.ClubId);
             return View(clubEvent);
         }
-
+        //=======================================================================================================================================
         // GET: ClubEvents/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {
@@ -109,7 +112,7 @@ namespace Rad301ClubsV1.Controllers
             }
             return View(clubEvent);
         }
-
+        //=======================================================================================================================================
         // POST: ClubEvents/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -120,7 +123,7 @@ namespace Rad301ClubsV1.Controllers
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }
-
+        //=======================================================================================================================================
         protected override void Dispose(bool disposing)
         {
             if (disposing)

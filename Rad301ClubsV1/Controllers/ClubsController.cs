@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Rad301ClubsV1.Models.ClubModel;
+using Rad301ClubsV1.Models;
 
 namespace Rad301ClubsV1.Controllers
 {
@@ -16,14 +17,36 @@ namespace Rad301ClubsV1.Controllers
     {
         private ClubContext db = new ClubContext();
 
-        // GET: Clubs
+
+
+        // GET: Clubs=============================================================================================================================
         public async Task<ActionResult> Index(string ClubName = null )
         {
-            return View(await db.Clubs
-                .Where(c => ClubName == null || c.ClubName.StartsWith(ClubName))
-                .ToListAsync()
-                );
+            using (ApplicationDbContext adb = new ApplicationDbContext())
+            {
+                var adimUser = GetApplicationUsersInRole(adb, User.Identity.Name).FirstOrDefault();
+            }
+
+            var clubMembers = db.Clubs.Include("clubMembers").ToList();
+
+
+            return View(await db.Clubs.Where(c => ClubName == null || c.ClubName.StartsWith(ClubName)).ToListAsync());
+                
+            }
+
+        //==========================================================================================================================================
+
+        public IEnumerable<ApplicationUser> GetApplicationUsersInRole(ApplicationDbContext context, string userName)
+        {
+                   return from role in context.Roles
+                   //where role.Name == roleName
+                   from userRoles in role.Users
+                   join user in context.Users
+                   on userRoles.UserId equals user.Id
+                   where user.UserName == userName 
+                   select user;
         }
+
 
         // GET: Clubs/Details/5
         public async Task<ActionResult> Details(int? id)
@@ -39,6 +62,9 @@ namespace Rad301ClubsV1.Controllers
             }
             return View(club);
         }
+
+
+
 
         // GET: Clubs/Create
         [Authorize(Roles = "Admin")]

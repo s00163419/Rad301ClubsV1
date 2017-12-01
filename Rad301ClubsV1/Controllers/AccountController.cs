@@ -23,12 +23,15 @@ namespace Rad301ClubsV1.Controllers
         {
         }
 
+        //============================================================================================================
+
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
         {
             UserManager = userManager;
             SignInManager = signInManager;
         }
 
+        //============================================================================================================
         public ApplicationSignInManager SignInManager
         {
             get
@@ -40,7 +43,7 @@ namespace Rad301ClubsV1.Controllers
                 _signInManager = value; 
             }
         }
-
+        //============================================================================================================
         public ApplicationUserManager UserManager
         {
             get
@@ -53,7 +56,7 @@ namespace Rad301ClubsV1.Controllers
             }
         }
 
-        //
+        //============================================================================================================
         // GET: /Account/Login
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
@@ -62,7 +65,7 @@ namespace Rad301ClubsV1.Controllers
             return View();
         }
 
-        //
+        //============================================================================================================
         // POST: /Account/Login
         [HttpPost]
         [AllowAnonymous]
@@ -104,7 +107,7 @@ namespace Rad301ClubsV1.Controllers
             }
         }
 
-        //
+        //============================================================================================================
         // GET: /Account/VerifyCode
         [AllowAnonymous]
         public async Task<ActionResult> VerifyCode(string provider, string returnUrl, bool rememberMe)
@@ -117,7 +120,7 @@ namespace Rad301ClubsV1.Controllers
             return View(new VerifyCodeViewModel { Provider = provider, ReturnUrl = returnUrl, RememberMe = rememberMe });
         }
 
-        //
+        //============================================================================================================
         // POST: /Account/VerifyCode
         [HttpPost]
         [AllowAnonymous]

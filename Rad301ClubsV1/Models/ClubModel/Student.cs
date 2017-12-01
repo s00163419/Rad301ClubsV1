@@ -8,8 +8,7 @@ using System.Web;
 namespace Rad301ClubsV1.Models.ClubModel
 {
     [Table("Student")]
-    public class Student
-    {
+    public class Student    {
         [Key]
         [Display(Name ="Student ID")]
         public string StudentID { get; set; }

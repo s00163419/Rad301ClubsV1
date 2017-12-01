@@ -197,9 +197,9 @@
     <Compile Include="Migrations\201611111008459_Initial.Designer.cs">
       <DependentUpon>201611111008459_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\ClubModelMigrations\201711211129332_Initial_Migration.cs" />
-    <Compile Include="Migrations\ClubModelMigrations\201711211129332_Initial_Migration.Designer.cs">
-      <DependentUpon>201711211129332_Initial_Migration.cs</DependentUpon>
+    <Compile Include="Migrations\ClubModelMigrations\201711221019333_Club initialise.cs" />
+    <Compile Include="Migrations\ClubModelMigrations\201711221019333_Club initialise.Designer.cs">
+      <DependentUpon>201711221019333_Club initialise.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\ClubModelMigrations\Configuration.cs" />
     <Compile Include="Migrations\ClubModelMigrations\StudentData.cs" />
@@ -208,6 +208,8 @@
     <Compile Include="Models\ClubModel\Club.cs" />
     <Compile Include="Models\ClubModel\ClubContext.cs" />
     <Compile Include="Models\ClubModel\ClubEvent.cs" />
+    <Compile Include="Models\ClubModel\Course.cs" />
+    <Compile Include="Models\ClubModel\CourseData.cs" />
     <Compile Include="Models\ClubModel\Members.cs" />
     <Compile Include="Models\ClubModel\Student.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -228,10 +230,11 @@
     <EmbeddedResource Include="Migrations\201611111008459_Initial.resx">
       <DependentUpon>201611111008459_Initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\ClubModelMigrations\201711211129332_Initial_Migration.resx">
-      <DependentUpon>201711211129332_Initial_Migration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\ClubModelMigrations\201711221019333_Club initialise.resx">
+      <DependentUpon>201711221019333_Club initialise.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\ClubModelMigrations\TestStudents.csv" />
+    <Content Include="Migrations\ClubModelMigrations\Courses.csv" />
     <None Include="Properties\PublishProfiles\ClubsV1 - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\ClubsV1 - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\pprad301ClubsApp - FTP.pubxml" />

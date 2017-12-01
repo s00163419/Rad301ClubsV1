@@ -14,6 +14,9 @@ namespace Rad301ClubsV1.Models.ClubModel
         public DbSet<ClubEvent> ClubEvents { get; set; }
         public DbSet<Member> members { get; set; }
         public DbSet<Student> Students { get; set; }
+        public object CourseName { get; set; }
+        public object Course { get; set; }
+
         public ClubContext()
             : base("DefaultConnection")
         {
